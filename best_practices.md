@@ -77,7 +77,7 @@ that support
 - computing statistics on arrays that are larger than memory
 - creating figures
 
-A good example of a programming language meets all these requirements is Python,
+A good example of a programming language that meets all these requirements is Python,
 where the [xarray](http://xarray.pydata.org) or
 [iris](https://scitools-iris.readthedocs.io) libraries facilitate the processing
 of large climate data, while [matplotlib](https://matplotlib.org/) or
