@@ -64,7 +64,8 @@ from scratch.
 Programming languages come with a large collection of built-in functions and
 libraries, called a standard library.
 It is recommended that you make use of functions from the standard library.
-An example of the [Python standard library](https://docs.python.org/3/library/).
+An example of such a library is the
+[Python standard library](https://docs.python.org/3/library/).
 
 Climate data is typically stored in NetCDF format using the CF-Conventions.
 Usually climate data is larger than the amount of memory available in a typical
