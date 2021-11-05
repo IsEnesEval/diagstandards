@@ -1,29 +1,29 @@
-# Style guide and coding standards
+# Best practices for programming diagnostics
 
-To facilitate code integration, code distribution between developers, reusability,
-maintenance and readability, it is recommended that the following best practices
+To facilitate code integration, code sharing between developers, reusability, easy
+maintenance, and readability, it is recommended that these recommendations
 are followed when developing new diagnostic scripts.
 
-## Open source with a license
+## Make your code open-source
 
 It is recommended that you make your code
-[open-source](https://the-turing-way.netlify.app/reproducible-research/open/open-source.html),
-to facilitate reproducible science and encourage potential
+[open-source](https://the-turing-way.netlify.app/reproducible-research/open/open-source.html)
+from the start, to facilitate reproducible science and encourage potential
 [collaboration](https://the-turing-way.netlify.app/collaboration/collaboration.html).
-If at some point you find yourself working on code with multiple people, it is
-highly recommended that you do
-[code reviews](https://the-turing-way.netlify.app/reproducible-research/reviewing.html)
-to improve the quality and reliability of your code.
+If you have reservations about making your code open source before publication,
+consider developing it in a private [git repository](#use-git-for-version-control) and making it
+public once you have submitted your paper.
+
+## Add a license
 
 It is critical that you share your code with a
 [license](https://the-turing-way.netlify.app/reproducible-research/licensing.html),
 because others will not legally be allowed to use it if it does not have a license.
+Make sure that any [dependencies](#use-libraries) you use or plan to use are
+[compatible](https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-compatibility.html)
+with the license you choose.
 
-If you have reservations about making your code open source before publication,
-consider developing it in a private [git repository](#versioning) and making it
-public once you have submitted your paper.
-
-## Versioning
+## Use git for version control
 
 It is recommended that you make use of a
 [version control](https://the-turing-way.netlify.app/reproducible-research/vcs.html)
@@ -31,16 +31,17 @@ tool.
 In particular, it is recommended that you use git, because of all available
 version control systems it best facilitates (future) collaboration.
 
-## Making your code citable
+## Make your code citable
 
 In order to get scientific credit for your work, you may wish to make it
 [easy to cite your code](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files).
-Many papers ask for a DOI for your code these days.
-A convenient way to obtain that is linking your GitHub repository with Zenodo
-as described in
+Many papers ask for a [DOI](https://www.doi.org/) for your code these days.
+A convenient way to obtain that is by linking your
+[GitHub](#host-your-code-on-a-website-with-an-issue-tracker) repository with
+[Zenodo](https://zenodo.org/) as described in
 [Making your code citable](https://guides.github.com/activities/citable-code/).
 
-## Choice of programming language
+## Choose a suitable programming language
 
 Most mature programming languages come with a set of standards, tools, and
 services for developing and distributing software in that language.
@@ -50,39 +51,9 @@ It is recommended that you choose a programming language for your diagnostic
 script that has both of the above mentioned features.
 At the moment, Python seems to be the most suitable language for analyzing
 climate data, mostly because of the availability of suitable
-[libraries](#using-libraries).
+[libraries](#use-libraries).
 
-## Code quality
-
-It is recommended that you make use of the
-[style guide](https://the-turing-way.netlify.app/reproducible-research/code-quality.html)
-that is available for the programming language of your choice.
-Examples of style guides:
-- [PEP8](https://www.python.org/dev/peps/pep-0008/) and [PEP257](https://www.python.org/dev/peps/pep-0257/) for Python
-- The [Tidyverse style guide ](https://style.tidyverse.org/)for R
-
-If there is no style guide available for the programming language of your
-choice, you may want to reconsider that choice, because the language may not be
-mature enough.
-If there are compelling reasons to choose a language without a style guide,
-it is recommended that you at least
-- organize your code in multiple files of no more than a few hundred lines each
-- organize your code in functions that fit your screen without scrolling (typically no more than 50 lines)
-- use easy to understand variable names
-- insert documentation or comments in your code that explains what is going on
-This kind of organization increases readability of your code, reducing the risk
-of mistakes and making your code accessible to others.
-
-Style guides typically come with automatic formatters, that can automatically
-format your code according to the chosen style.
-In addition to automatic formatters, tools for checking adherence to a style
-guide are usually also available, these are called linters.
-It is recommended that you make use of an automatic formatter and linter.
-For example, a popular automatic formatter for Python is
-[black](https://black.readthedocs.io), while a good linter for Python is
-[pylint](https://pylint.org/).
-
-## Using libraries
+## Use libraries
 
 Software that has been developed by a large and thriving community is usually
 more reliable and faster than developing your own solution.
@@ -101,14 +72,49 @@ computer.
 A programming language that is suitable for analyzing climate data has libraries
 that support
 - reading and writing NetCDF files or an equivalent storage format supporting the CF-Conventions
-- computing statistics on arrays that are larger than memory
 - understand the CF-Conventions
-An example of a programming language meets all these requirements is Python,
-where the [xarray](http://xarray.pydata.org) and
-[iris](https://scitools-iris.readthedocs.io) libraries facilitate the analysis
-of climate data.
+- computing statistics on arrays that are larger than memory
+- creating figures
 
-## Keeping code reliable and maintainable
+A good example of a programming language meets all these requirements is Python,
+where the [xarray](http://xarray.pydata.org) or
+[iris](https://scitools-iris.readthedocs.io) libraries facilitate the processing
+of large climate data, while [matplotlib](https://matplotlib.org/) or
+[altair](https://altair-viz.github.io/) can be used for visualization.
+
+## Follow code quality standards
+
+It is recommended that you make use of the
+[style guide](https://the-turing-way.netlify.app/reproducible-research/code-quality.html)
+that is available for the programming language of your choice.
+Examples of style guides:
+- [PEP8](https://www.python.org/dev/peps/pep-0008/) and [PEP257](https://www.python.org/dev/peps/pep-0257/) for Python
+- The [Tidyverse style guide ](https://style.tidyverse.org/)for R
+
+If there is no style guide available for the programming language of your
+choice, you may want to reconsider that choice because the language may not be
+mature enough.
+If there are compelling reasons to choose a language without a style guide,
+it is recommended that you at least
+- organize your code in multiple files of no more than a few hundred lines each
+- organize your code in functions that fit your screen without scrolling (typically no more than 50 lines)
+- use easy to understand variable names
+- insert documentation or comments in your code that explain what is going on
+
+This kind of organization increases readability of your code, thereby reducing
+the risk of mistakes and making your code accessible to others.
+
+Style guides typically come with automatic formatters, that can automatically
+format your code according to the chosen style.
+In addition to automatic formatters, tools for checking adherence to a style
+guide as well as for common programming mistakes are usually also available.
+These tools are called linters.
+It is recommended that you make use of an automatic formatter and linter.
+For example, a popular automatic formatter for Python is
+[black](https://black.readthedocs.io), while a good linter for Python is
+[pylint](https://pylint.org/).
+
+## Keep your code reliable and maintainable
 If you write large pieces of code, it is recommended that you implement some
 form of
 [automated testing](https://the-turing-way.netlify.app/reproducible-research/testing.html)
@@ -124,11 +130,48 @@ For most programming languages, tools are available to run all tests with a
 single command.
 A good choice for running Python tests is [pytest](https://docs.pytest.org).
 
-## Package registries
+## Do code reviews
+If at some point you find yourself working on code with multiple people, it is
+highly recommended that you do
+[code reviews](https://the-turing-way.netlify.app/reproducible-research/reviewing.html)
+to improve the quality and reliability of your code.
 
-It is recommended that only use libraries that are available in the default
-package registry for your language, to ensure that others are able to easily
-install the dependencies required to run your software.
+## Use online services
+
+A large number of services are available online to make developing and
+distributing software easier.
+There services are usually free for [open-source](#make-your-code-open-source)
+projects.
+
+### Host your code on a website with an issue tracker
+It is recommended that you develop your diagnostic script
+[in public](#open-source-with-a-license) on a modern code development platform
+like [GitHub](https://github.com/) or [GitLab](https://about.gitlab.com).
+This facilitates
+[collaboration](https://the-turing-way.netlify.app/collaboration/collaboration.html)
+and has the added benefit that you can make use
+of services for automatically hosting
+[documentation](#host-your-documentation-on-a-website),
+[automatic quality control](#use-a-code-quality-checker),
+[automatic testing](#automate-testing),
+and [automatic publication](#use-a-package-registry).
+
+Hold all conversations about developments of your code in the issue tracker,
+to make your work accessible to users and potential collaborators.
+If you have a conversation where decisions are made outside the issue tracker,
+make sure to summarize it in an issue.
+
+### Host your documentation on a website
+The most convenient way to publish your documentation is a webpage.
+It is recommended that you use the service for documentation that is the default
+for the programming languages you are using.
+For Python, [readthedocs](https://readthedocs.org/) is a common choice.
+
+### Use a package registry
+
+It is recommended that you only use libraries that are available in the default
+package registry for the programming language of your choice, to ensure that
+others are able to easily install the dependencies required to run your software.
 Examples of package registries are the [Python Package Index](https://pypi.org/)
 and the [Comprehensive R Archive Network](https://cran.r-project.org/) for
 Python and R packages respectively.
@@ -136,36 +179,14 @@ Python and R packages respectively.
 Likewise, it is recommended that you distribute your diagnostic code as
 (part of) a package in the default package registry.
 
-## Services
-
-A large number of services are available online to make developing and
-distributing software easier.
-
-### Code hosting service with issue tracker
-It is recommended that you develop your diagnostic script
-[in public](#open-source-with-a-license) on a modern code development platform
-like [GitHub](https://github.com/) or [GitLab](https://about.gitlab.com).
-This facilitates
-[collaboration](https://the-turing-way.netlify.app/collaboration/collaboration.html)
-and has the added benefit that you can make use
-of services for automatically building [documentation](#documentation),
-[automatic quality control](#code-quality-checker), and
-[automatic testing](#automated-testing).
-
-### Documentation
-The most convenient way to publish your documentation is a webpage.
-It is recommended that you use the service for documentation that is the default
-for the programming languages you are using.
-For Python, [readthedocs](https://readthedocs.org/) is a common choice.
-
-### Code quality checker
+### Use a code quality checker
 Various services are available that can automatically find common mistakes
 in your source code.
 An example of such a service is [Codacy](https://www.codacy.com/).
 
-### Automated testing
-Many online services are available for running tests automatically whenever
-you make changes.
+### Automate testing
+Many online services are available for running [tests](#keep-your-code-reliable-and-maintainable)
+automatically whenever you make changes.
 This is called [continuous integration](https://the-turing-way.netlify.app/reproducible-research/ci.html).
 Examples of such services are
 [GitHub Actions](https://github.com/features/actions),
