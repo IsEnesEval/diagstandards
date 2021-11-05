@@ -7,6 +7,6 @@ We will also define the technical architecture required to plug other diagnostic
 ## Best practices for developing diagnostics
 
 To facilitate code integration, code sharing between developers, reusability,
-easy maintenance, and readability, a document with [best practices](best practices.md)
+easy maintenance, and readability, a document with [best practices](best_practices.md)
 is available.
 This includes recommendations on the standards and style to use when writing code.
