@@ -132,8 +132,8 @@ It is recommended that you make use of an automatic formatter and linter.
 For example, a popular automatic formatter for Python is
 [black](https://black.readthedocs.io), while a good linter for Python is
 [pylint](https://pylint.org/).
-It is recommended that you use an [online service to host your code](host-your-code-on-a-website-with-an-issue-tracker),
-so you can [automate checking the quality of your code](use-a-code-quality-checker)
+It is recommended that you use an [online service to host your code](#host-your-code-on-a-website-with-an-issue-tracker),
+so you can [automate checking the quality of your code](#use-a-code-quality-checker)
 and even [formatting it](https://pre-commit.ci), should you wish to do so.
 
 ## Keep your code reliable and maintainable
@@ -161,13 +161,13 @@ instructions, examples, tutorials, contribution guidelines, and a code
 of conduct is recommended.
 This could for example be set up by using [mkdocs](https://www.mkdocs.org/).
 
-For software packages that can be [used as a library](use-libraries), it is
+For software packages that can be [used as a library](#use-libraries), it is
 recommended that you use a tool that can build a documentation webpage from
 documentation included in the code.
 For Python projects, [sphinx](https://www.sphinx-doc.org) is a common choice.
 
 It is recommended that you
-[host your documentation on a website](host-your-documentation-on-a-website).
+[host your documentation on a website](#host-your-documentation-on-a-website).
 
 ## Do code reviews
 If at some point you find yourself working on code with multiple people, it is
