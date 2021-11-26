@@ -5,7 +5,7 @@ maintenance, and readability, it is recommended that these recommendations
 are followed when developing new diagnostic scripts.
 
 It is recommended that you contribute your diagnostic script to an existing
-tool, such as the [ESMValTool](www.esmvaltool.org), as this makes it easier
+tool, such as the [ESMValTool](https://www.esmvaltool.org), as this makes it easier
 to find users and collaborators, thus increasing the chances that your software will
 survive long after you have moved on to something new and exciting.
 However, if you find that contributing to existing software does not work for you,
