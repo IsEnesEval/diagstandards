@@ -4,6 +4,18 @@ To facilitate code integration, code sharing between developers, reusability, ea
 maintenance, and readability, it is recommended that these recommendations
 are followed when developing new diagnostic scripts.
 
+It is recommended that you contribute your diagnostic script to an existing
+tool, such as the [ESMValTool](www.esmvaltool.org), as this makes it easier
+to find users and collaborators, thus increasing the chances that your software will
+survive long after you have moved on to something new and exciting.
+However, if you find that contributing to existing software does not work for you,
+you can start a new package.
+A convenient way to do so is by using a [cookiecutter](https://cookiecutter.readthedocs.io)
+template that already implements many of the items recommended here, for example
+this [python-template](https://github.com/NLeSC/python-template).
+Regardless of whether you are contributing to an existing project or starting
+a new project, it is recommended that you follow the guidelines in this document.
+
 ## Make your code open-source
 
 It is recommended that you make your code
@@ -22,6 +34,12 @@ because others will not legally be allowed to use it if it does not have a licen
 Make sure that any [dependencies](#use-libraries) you use or plan to use are
 [compatible](https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-compatibility.html)
 with the license you choose.
+To make it easier for others to use your code, consider adding a license that is
+commonly used in the community that you are developing your code in.
+For example, when developing in R, you may want to choose an (L)GPL license,
+while the Apache 2.0 license may be a suitable choice for Python code.
+See [choosealicense.com](https://choosealicense.com/) for an overview of the available
+options.
 
 ## Use git for version control
 
@@ -114,6 +132,9 @@ It is recommended that you make use of an automatic formatter and linter.
 For example, a popular automatic formatter for Python is
 [black](https://black.readthedocs.io), while a good linter for Python is
 [pylint](https://pylint.org/).
+It is recommended that you use an [online service to host your code](host-your-code-on-a-website-with-an-issue-tracker),
+so you can [automate checking the quality of your code](use-a-code-quality-checker)
+and even [formatting it](https://pre-commit.ci), should you wish to do so.
 
 ## Keep your code reliable and maintainable
 If you write large pieces of code, it is recommended that you implement some
@@ -130,6 +151,23 @@ code do not change previously computed results that are not supposed to change.
 For most programming languages, tools are available to run all tests with a
 single command.
 A good choice for running Python tests is [pytest](https://docs.pytest.org).
+
+## Write documentation
+It is recommended that you write documentation for your code.
+For a small piece of software, adding a README.md file with some installation
+and usage instructions might be sufficient.
+For a larger software package, having a webpage with for example usage
+instructions, examples, tutorials, contribution guidelines, and a code
+of conduct is recommended.
+This could for example be set up by using [mkdocs](https://www.mkdocs.org/).
+
+For software packages that can be [used as a library](use-libraries), it is
+recommended that you use a tool that can build a documentation webpage from
+documentation included in the code.
+For Python projects, [sphinx](https://www.sphinx-doc.org) is a common choice.
+
+It is recommended that you
+[host your documentation on a website](host-your-documentation-on-a-website).
 
 ## Do code reviews
 If at some point you find yourself working on code with multiple people, it is
