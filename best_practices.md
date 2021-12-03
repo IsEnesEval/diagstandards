@@ -35,7 +35,8 @@ Make sure that any [dependencies](#use-libraries) you use or plan to use are
 [compatible](https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-compatibility.html)
 with the license you choose.
 To make it easier for others to use your code, consider adding a license that is
-commonly used in the community that you are developing your code in.
+commonly used in the community that you are developing your code in and/or 
+compatible with any tools that you may want to integrate it with.
 For example, when developing in R, you may want to choose an (L)GPL license,
 while the Apache 2.0 license may be a suitable choice for Python code.
 See [choosealicense.com](https://choosealicense.com/) for an overview of the available
@@ -68,8 +69,8 @@ facilitate the analysis of climate data.
 It is recommended that you choose a programming language for your diagnostic
 script that has both of the above mentioned features.
 At the moment, Python seems to be the most suitable language for analyzing
-climate data, mostly because of the availability of suitable
-[libraries](#use-libraries).
+climate data in general, mostly because of the availability of suitable
+[libraries](#use-libraries), but bear in mind that some specific communities can be heavily invested in other languages (like the predictions verification community is in R). You may want to do a library  search for your specific problem to discover if your community is one of those.
 
 ## Use libraries
 
@@ -135,7 +136,7 @@ For example, a popular automatic formatter for Python is
 It is recommended that you use an [online service to host your code](#host-your-code-on-a-website-with-an-issue-tracker),
 so you can [automate checking the quality of your code](#use-a-code-quality-checker)
 and even [formatting it](https://pre-commit.ci), should you wish to do so.
-
+Working with an automatic linter and formatter can be tedious and frustrating at the start. After a few weeks that goes off and the improvements in readability and reliability will be huge, specially if you are developing code with more colleagues. Please, be patient and then you will see the results by yourself.
 ## Keep your code reliable and maintainable
 If you write large pieces of code, it is recommended that you implement some
 form of
@@ -173,7 +174,8 @@ It is recommended that you
 If at some point you find yourself working on code with multiple people, it is
 highly recommended that you do
 [code reviews](https://the-turing-way.netlify.app/reproducible-research/reviewing.html)
-to improve the quality and reliability of your code.
+to improve the quality and reliability of your code. As a bonus, you will see that
+the review process will greatly improve your abilities as a coder.
 
 ## Use online services
 
