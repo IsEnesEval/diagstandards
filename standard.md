@@ -13,12 +13,12 @@ There are three levels of definitions in this standard:
 
 - **Must**: all diagnostic have to meet this conditions to comply with the standard.
 - **Recommend**: diagnostics are encouraged to meet them but they are not mandatory. Nevertheless, if a list of compatible diagnostics is compiled, those who will meet them will be highlighted.
-- **Suggest**: they will never ve enforced, but the team consider them as nice to have. They mostly correspond to quality of life improvements.
+- **Suggest**: they will never be enforced, but they are considered nice to have. They mostly correspond to quality of life improvements.
 
-In the same way, when defining the content of the yaml files, three different levels of definitions are  used:
+In the same way, when defining the content of the yaml files, three different levels of definitions are used:
 
-- **Required**: they must allways be present with the defined meaning and allowed values.
-- **Reserved**: they can be omitted, but in the case that are present, they must have the defined meaning and allowed values.
+- **Required**: must always be present with the defined meaning and allowed values.
+- **Reserved**: can be omitted, but if present, must have the defined meaning and allowed values.
 - **Custom**: in all files, extra options can be added as needed by the diagnostics or the tools. The only requirement is that they do not collide with any `required` or `reserved` option.
 
 
@@ -29,13 +29,13 @@ The diagnostic must be implemented as a command line tool that accepts a path to
 It is recommended that the diagnostic executable can also be called with the `--help` option. The diagnostic should then print on the console the following help information:
 
 - A small description of what the diagnostic does (recommended)
-- A list of the options defined by the diagnostic to configure it. It is recommended that this list comes with a small explanation of it's meaning and effects, the type of the expected values and any default values taken when they are not explicitly defined (recommended).
+- A list of the options defined by the diagnostic to configure it. It is recommended that this list comes with a small explanation of its meaning and effects, the type of the expected values, and any default values used when the option is not explicitly defined (recommended).
 - A list of the mandatory common options required for the diagnostic to work (recommended).
 - A link to the online documentation, if available (suggested)
 
 ## The diagnostic configuration file
 
-This section will define the syntax fot he main configuration file. It must be a yaml file containing a dictionary that contains a dictionary with all the options needed by a diagnostic
+This section will define the syntax for the main configuration file. It must be a YAML file containing a mapping that contains a mapping with all the options needed by a diagnostic
 
 ### Required options
 
@@ -64,31 +64,31 @@ The options listed in this file are not required for the diagnostics to implemen
 
 ## The data definition file
 
-The data definition file must be a yaml file containing a dictionary of dictionaries. This first dictionary will have as keys the path to the data files and as values the dictionary containg the metadata of each file.
+The data definition file must be a YAML file containing a mapping of mappings. The top-level mapping will have as keys the path to the data files and as values, the mapping containing the metadata of each file.
 
-There is no limit to the number of file that can be provided on a single file, although it is suggested
+There is no limit to the number of input data files that can be provided on a single file, although it is suggested.
 
 ### Required options
 
 - **alias**: `str`. Unique name for the dataset. Any (`alias`, `variable`) pair must be unique
-- **filename**: `str`. Absoulute path to the data file.
+- **filename**: `str`. Absolute path to the data file.
 - **variable**: `str`. Variable name to be used by the diagnostic. It does not have to match any of the CF conventions names in the file
 
 ### Reserved options
 
 #### Related to the dataset
 
-- **project**: `str`. Name of the project at which this dataset belongs. It can be a real project, like `CMIP5`, `CMIP6` or a tool defined agrupation of datasets like `Observations` or `Reanalysis`
+- **project**: `str`. Name of the project to which this dataset belongs. It can be a real project, like `CMIP5`, `CMIP6` or a tool defined grouping of datasets like `Observations` or `Reanalysis`
 - **activity**: `str`. CMIP activity or analog for the current data
 - **institute**: `list(str)`. List of institutes associated to the current data.
-- **dataset**: `str`. Name of the dataset, being it the CMIP model indetifier, the name of an observation
+- **dataset**: `str`. Name of the dataset. For example: the CMIP model identifier, the name of an observational dataset, etc.
 - **ensemble**: `str`. Ensemble identifier for the current data
 
 #### Related to the variable
 
-- **table**: `str`. Original mip of the current variable
+- **table**: `str`. Original MIP table of the current variable
 - **frequency**: `str`. Original frequency of the data used
-- **modeling_realm**: `list(str)`. List of realms at which the variable belonh
+- **modeling_realm**: `str`. Realms to which the variable belongs
 - **grid**: `str`. Original grid of the variable
 - **units**: `str`. Units of the data
 - **short_name**: `str`. Variable name used in the file.
@@ -105,10 +105,10 @@ There is no limit to the number of file that can be provided on a single file, a
 
 ## The script formal description file
 
-It is recommended that each script comes with a description file in yaml syntax which includes :
-- **script_name**: `str`. A label for the name of the script, which uniquely identifies it, and is delivered by an authoritative entity (such as an ESGF, ENES or WCRP entitiy)
+It is recommended that each script comes with a description file in YAML syntax which includes:
+- **script_name**: `str`. A label for the name of the script, which uniquely identifies it, and is delivered by an authoritative entity (such as an ESGF, ENES, or WCRP entity)
 - **script_interface_version**: `str`. A label for distinguishing among various version of the script interface
--  **mandatory_keys**: `list(str)`. the list of reserved and custom keys for which the tool must provide values
+- **mandatory_keys**: `list(str)`. the list of reserved and custom keys for which the tool must provide values
 - **input_type**: `str`. which can take values 'member', 'ensemble' and 'any', and which allows the tool to check that values provided to the script are of the right type. 'ensemble' means : an ensemble with more than one member, while 'any' allows for an ensemble of size 1. If the type differs among the variables, this entry can be a dictionary with key = variable name
 - **outputs**:`dict`. A dictionary of patterns  which allows the tool to discover every output file and to assign a label to it. The patterns and the labels used as dictionary keys  can make use of keywords 'variable', 'dataset' and 'reference_dataset'; the tool may instantiate the keywords with all possible values to form file basenames and test whether a corresponding file exists in scripts output directories; dictionary values can be pairs, in which case, the second element of the pair allows for providing a pattern for indicating the output variable's short_name
 - **can_select** : `bool`. Tells the tool whether the script is able to select data in input data files, in term of variable selection and time period selection. Defaults to **False**
