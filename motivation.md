@@ -2,7 +2,7 @@
 
 ## The current situation
 
-The Earth Sciences community has a long record of openness and collaboration regarding libraries and supporting tools for climate science. This range from basic libraries like NetCDF or UDUNITS to complex frameworks like xarray, CDO, NCO and others.
+The Earth Sciences community has a long record of openness and collaboration regarding libraries and supporting tools for climate science. This ranges from basic libraries like NetCDF or UDUNITS to complex frameworks like xarray, CDO, NCO and others.
 
 The collaboration on tools is complemented with a huge effort on data sharing, with the CMIP project being its most important representative, and platforms like ESGF and the Climate Data Store providing access to huge amounts of observational and experimental data, along with the individuals efforts done by insititutions like NASA and ESA.
 
