@@ -4,7 +4,7 @@
 
 The Earth Sciences community has a long record of openness and collaboration regarding libraries and supporting tools for climate science. This ranges from basic libraries like NetCDF or UDUNITS to complex frameworks like xarray, CDO, NCO and others.
 
-The collaboration on tools is complemented with a huge effort on data sharing, with the CMIP project being its most important representative, and platforms like ESGF and the Climate Data Store providing access to huge amounts of observational and experimental data, along with the individuals efforts done by insititutions like NASA and ESA.
+The collaboration on tools is complemented with a huge effort on data sharing, with the CMIP project being its most important representative, and platforms like ESGF and the Climate Data Store providing access to huge amounts of observational and experimental data, along with the individual efforts done by institutions like NASA and ESA.
 
 However, there is still a particular field in which collaboration can still improve: the actual pieces of code that analyze the data and produce the final results, hereafter called 'diagnostic scripts' or in short 'diagnostics' or 'scripts'. Those pieces of code are ones of the most expensive in term of climate scientists' development and tuning time, and the most sensitive with regard to scientific correctness, so collaboration will be a huge boon to the community.
 
