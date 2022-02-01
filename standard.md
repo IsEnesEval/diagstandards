@@ -1,11 +1,11 @@
 # Definition of the standard
 
-This document intends to define a standard 
-with the purpose of facilitating the sharing of source codes used to 
+This document intends to define a standard
+with the purpose of facilitating the sharing of source codes used to
 analyze climate data and produce evaluation results and figures. Said codes
-will hereafter be refered as 'diagnostic scripts', or in short 'diagnostics' 
-or 'scripts'. It is assumed that diagnostic scripts are able to be wrapped 
-as standalone codes that run as independent processes, an approach that 
+will hereafter be referred as 'diagnostic scripts', or in short 'diagnostics'
+or 'scripts'. It is assumed that diagnostic scripts are able to be wrapped
+as standalone codes that run as independent processes, an approach that
 has been successfully tested in tools such as ESMValTool and CLiMAF.
 It also assumes that diagnostic scripts are able to read CF compliant NetCDF
 data files and to produce only the same kind of output files and graphic files.
@@ -15,26 +15,26 @@ data files and to produce only the same kind of output files and graphic files.
 This standard defines three tiers of enforceability for the guidelines to share diagnostics:
 
 - **Must**: guidelines that all diagnostics have to meet to comply with the standard.
-- **Recommend**: guidelines that all diagnostics are encouraged to meet, but are not mandatory. 
-Nevertheless, if a list of compatible diagnostics is compiled, diagnostic scripts meeting 
-recommended guidelines will be highlighted. 
+- **Recommend**: guidelines that all diagnostics are encouraged to meet, but are not mandatory.
+Nevertheless, if a list of compatible diagnostics is compiled, diagnostic scripts meeting
+recommended guidelines will be highlighted.
 - **Suggest**: guidelines that are not required, but are considered to improve the quality of the diagnostics.
 
-Diagnostic scripts are expected to be contributed along with a YAML file containing configuration options. 
+Diagnostic scripts are expected to be contributed along with a YAML file containing configuration options.
 This standard defines three different levels of enforceability for the contents of this YAML file:
 
-- **Required**: parameters that must always be present, have a defined meaning and that can only take allowed values. 
+- **Required**: parameters that must always be present, have a defined meaning and that can only take allowed values.
 - **Reserved**: parameters that can be omitted, but if present, must have a defined meaning and allowed values.
-- **Custom**: extra parameters can be defined as needed by the diagnostics or the tools. 
+- **Custom**: extra parameters can be defined as needed by the diagnostics or the tools.
 They must not collide with neither `required` nor `reserved` parameters.
 
 
 ## The command line interface
 
-The diagnostic *must* be implemented as a command line tool that accepts the path to the 
+The diagnostic *must* be implemented as a command line tool that accepts the path to the
 YAML configuration file as the only parameter.
 
-It is *recommended* to include in the diagnostic executable the possibility to use a `--help` flag. 
+It is *recommended* to include in the diagnostic executable the possibility to use a `--help` flag.
 The diagnostic should print on the terminal the following help information:
 
 - A short description of the diagnostic (*recommended*).
@@ -51,7 +51,7 @@ The diagnostic's configuration file *must* consist of YAML file containing key-v
 The following options *must* be present in the configuration file:
 
 - **diagnostic_path** : `str`. Path to the diagnostic executable.
-- **input_files**: `list`. List of absolute paths to the metadata files describing the data to be used by the diagnostic. 
+- **input_files**: `list`. List of absolute paths to the metadata files describing the data to be used by the diagnostic.
 The format of these files is especified in section XXXX.
 - **tool**: `str`. Name of the tool used to prepare the data for the diagnostic.
 - **version**: `str` Version of the tool used to prepare the data for the diagnostic.
@@ -66,7 +66,7 @@ easier. However, using the same directory for all purposes is accepted.
 
 The following options are not required, however if present they must follow the definitions listed below:
 
-- **log_level**: `str`, default value is `info`. Sets the granularity of the diagnostic logs and console output. 
+- **log_level**: `str`, default value is `info`. Sets the granularity of the diagnostic logs and console output.
 If used, the logger must include `error` `warning`, `info` and `debug` levels .
 - **auxiliary_data_dir** : `str`. Path to the auxiliary directory to store further input data files needed by the diagnostic, such as shapefiles.
 - **max_proc_number** : `integer`, default value is **1**. Maximum number of processors used to run the diagnostic.
@@ -123,5 +123,5 @@ It is *recommended* that each script comes with a description file in YAML synta
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
 - **mandatory_keys**: `list(str)`. List of reserved and custom keys for which the tool *must* provide values
 - **input_type**: `str`. Allows the tool to check if values provided to the script have the right type. Possible values are: 'member', 'ensemble' or 'any'. Where an can be defined 'ensemble' with more than one member, while 'any' allows for an 'ensemble' of size 1. If the type differs among the variables, this entry can be a dictionary defined as {'key': 'variable name'}.
-- **outputs**:`dict`. Dictionary of patterns with the purpose of allowing the tool to discover every output file and to assign a label to it. The patterns and the labels used as dictionary keys  can make use of keywords 'variable', 'dataset' and 'reference_dataset'. The tool may substitute the keywords with all possible values to form file basenames and test whether a corresponding file exists in the script's output directories. Dictionary values can be defined as pairs, in which the second element of tht pair is a pattern to indicate the 'short_name' of the output variable. 
+- **outputs**:`dict`. Dictionary of patterns with the purpose of allowing the tool to discover every output file and to assign a label to it. The patterns and the labels used as dictionary keys  can make use of keywords 'variable', 'dataset' and 'reference_dataset'. The tool may substitute the keywords with all possible values to form file basenames and test whether a corresponding file exists in the script's output directories. Dictionary values can be defined as pairs, in which the second element of the pair is a pattern to indicate the 'short_name' of the output variable.
 - **can_select** : `bool`. Determines whether the script in input data files, in term of variable selection and time period selection. Defaults to **False**
