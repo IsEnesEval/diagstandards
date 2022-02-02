@@ -28,20 +28,6 @@ This standard defines three different levels of enforceability for the contents 
 - **Custom**: extra parameters can be defined as needed by the diagnostics or the tools.
 They must not collide with neither `required` nor `reserved` parameters.
 
-
-## The command line interface
-
-The diagnostic *must* be implemented as a command line tool that accepts the path to the
-YAML configuration file as the only parameter.
-
-It is *recommended* to include in the diagnostic executable the possibility to use a `--help` flag.
-The diagnostic should print on the terminal the following help information:
-
-- A short description of the diagnostic (*recommended*).
-- A list describing possible configuration options, as well as expected and default values for each option (*recommended*).
-- A list of the mandatory common options required for the diagnostic to work (*recommended*).
-- A link to the online documentation, if available (*suggested*).
-
 ## The diagnostic configuration file
 
 The diagnostic's configuration file *must* consist of YAML file containing key-value mappings for all the parameters needed to run the diagnostic.
@@ -76,7 +62,6 @@ If used, the logger must include `error` `warning`, `info` and `debug` levels .
 
 The data definition file *must* consist of a YAML file containing a mapping of mappings. The top-level mapping will have as keys the path to the data files. And as values, the mapping containing the metadata of each file.
 
-There is no limit to the number of input data files that can be provided on a single file, although it is *suggested* (ANY IDEA OF WHAT MAY FOLLOW?).
 
 ### Required options
 
@@ -120,9 +105,23 @@ There is no limit to the number of input data files that can be provided on a si
 
 It is *recommended* that each script comes with a description file in YAML syntax which includes:
 
+- **title**: `str`. Label for the title of the diagnostic.
+- **description** `str`. A short description of the diagnostic.
+- **references** `list(str)`. List of references to be cited if using the diagnostic.
+- **authors** `list(str)`. List of authors that developed the diagnostic.
 - **script_name**: `str`. Label for the name of the script, which uniquely identifies it, and is delivered by an authoritative entity (such as ESGF, ENES, or WCRP)
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
 - **mandatory_keys**: `list(str)`. List of reserved and custom keys for which the tool *must* provide values
 - **input_type**: `str`. Allows the tool to check if values provided to the script have the right type. Possible values are: 'member', 'ensemble' or 'any'. Where an can be defined 'ensemble' with more than one member, while 'any' allows for an 'ensemble' of size 1. If the type differs among the variables, this entry can be a dictionary defined as {'key': 'variable name'}.
 - **outputs**:`dict`. Dictionary of patterns with the purpose of allowing the tool to discover every output file and to assign a label to it. The patterns and the labels used as dictionary keys  can make use of keywords 'variable', 'dataset' and 'reference_dataset'. The tool may substitute the keywords with all possible values to form file basenames and test whether a corresponding file exists in the script's output directories. Dictionary values can be defined as pairs, in which the second element of the pair is a pattern to indicate the 'short_name' of the output variable.
 - **can_select** : `bool`. Determines whether the script in input data files, in term of variable selection and time period selection. Defaults to **False**
+- If available, an URL to the online documentation.
+
+As well as the information defined in section [The command line interface](#the-command-line-interface).
+
+## The command line interface
+
+The diagnostic *must* be implemented as a command line tool that accepts the path to the
+YAML configuration file as the only parameter.
+
+It is *recommended* to include in the diagnostic executable the possibility to use a `--help` flag that prints the information defined in section [The script formal description file] (#the-script-formal-description-file).
