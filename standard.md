@@ -117,7 +117,6 @@ It is *recommended* that each script comes with a description file in YAML synta
 - **can_select** : `bool`. Determines whether the script in input data files, in term of variable selection and time period selection. Defaults to **False**
 - If available, an URL to the online documentation.
 
-As well as the information defined in section [The command line interface](#the-command-line-interface).
 
 ## The command line interface
 
