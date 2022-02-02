@@ -6,7 +6,7 @@
 
 ##
 
-Report on the technical standards defined after gathering all the requirements.
+Report on the [technical standards](standard.md) defined after gathering all the requirements.
 The document will emphasize on technical solutions chosen to improve the
 compatibility between tools
 
