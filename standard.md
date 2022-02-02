@@ -2,9 +2,11 @@
 
 This document intends to define a standard
 with the purpose of facilitating the sharing of source codes used to
-analyze climate data and produce evaluation results and figures. Said codes
-will hereafter be referred as 'diagnostic scripts', or in short 'diagnostics'
-or 'scripts'. It is assumed that diagnostic scripts are able to be wrapped
+analyze climate data and produce evaluation results and figures. 
+Said codes will hereafter be referred as 'diagnostic scripts', or in short 'diagnostics'
+or 'scripts'. 
+
+It is assumed that diagnostic scripts are able to be wrapped
 as standalone codes that run as independent processes, an approach that
 has been successfully tested in tools such as ESMValTool and CLiMAF.
 It also assumes that diagnostic scripts are able to read CF compliant NetCDF
@@ -38,7 +40,7 @@ The following options *must* be present in the configuration file:
 
 - **diagnostic_path** : `str`. Path to the diagnostic executable.
 - **input_files**: `list`. List of absolute paths to the metadata files describing the data to be used by the diagnostic.
-The format of these files is especified in section `The data definition file`.
+The format of these files is especified in section [The data definition file](the-data-definition-file).
 - **tool**: `str`. Name of the tool used to prepare the data for the diagnostic.
 - **version**: `str` Version of the tool used to prepare the data for the diagnostic.
 - **run_dir**: `str`. Path to the directory to use as current path for the diagnostic execution. *Must* be writable by the diagnostic.
@@ -112,9 +114,10 @@ It is *recommended* that each script comes with a description file in YAML synta
 - **script_name**: `str`. Label for the name of the script, which uniquely identifies it, and is delivered by an authoritative entity (such as ESGF, ENES, or WCRP)
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
 - **mandatory_keys**: `list(str)`. List of reserved and custom keys for which the tool *must* provide values
-- **input_type**: `str`. Allows the tool to check if values provided to the script have the right type. Possible values are: 'member', 'ensemble' or 'any'. Where an can be defined 'ensemble' with more than one member, while 'any' allows for an 'ensemble' of size 1. If the type differs among the variables, this entry can be a dictionary defined as {'key': 'variable name'}.
-- **outputs**:`dict`. Dictionary of patterns with the purpose of allowing the tool to discover every output file and to assign a label to it. The patterns and the labels used as dictionary keys  can make use of keywords 'variable', 'dataset' and 'reference_dataset'. The tool may substitute the keywords with all possible values to form file basenames and test whether a corresponding file exists in the script's output directories. Dictionary values can be defined as pairs, in which the second element of the pair is a pattern to indicate the 'short_name' of the output variable.
-- **can_select** : `bool`. Determines whether the script in input data files, in term of variable selection and time period selection. Defaults to **False**
+- **input_type**: `str`. Possible values are: `member`, `ensemble` or `any`. Allows the tool to check if values provided to the script have the right type.
+An `ensemble` can be defined as an ensemble with more than one member, while `any` allows for an ensemble of size 1. If the type differs among the variables, this entry can be a dictionary defined as {'key': 'variable name'}.
+- **outputs**:`dict`. Dictionary of patterns with the purpose of allowing the tool to discover every output file and to assign a label to it. The patterns and the labels used as dictionary keys  can make use of keywords `variable`, `dataset` and `reference_dataset`. The tool may substitute the keywords with all possible values to form file basenames and test whether a corresponding file exists in the script's output directories. Dictionary values can be defined as pairs, in which the second element of the pair is a pattern to indicate the 'short_name' of the output variable.
+- **can_select** : `bool`. Determines whether the script in input data files, in term of variable selection and time period selection. Defaults to **False**.
 - If available, an URL to the online documentation.
 
 
