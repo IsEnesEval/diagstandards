@@ -1,11 +1,5 @@
 # Technical standards for diagnostic tools
 
-
-
-## Motivation
-
-
-See more [here](motivation.md)
 ## Inputs
 
 ## The standard
