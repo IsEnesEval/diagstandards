@@ -123,4 +123,4 @@ It is *recommended* that each script comes with a description file in YAML synta
 The diagnostic *must* be implemented as a command line tool that accepts the path to the
 YAML configuration file as the only parameter.
 
-It is *recommended* to include in the diagnostic executable the possibility to use a `--help` flag that prints the information defined in section [The script formal description file] (#the-script-formal-description-file).
+It is *recommended* to include in the diagnostic executable the possibility to use a `--help` flag that prints the information defined in section [The script formal description file](#the-script-formal-description-file).
