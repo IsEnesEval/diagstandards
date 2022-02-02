@@ -52,7 +52,7 @@ The following options *must* be present in the configuration file:
 
 - **diagnostic_path** : `str`. Path to the diagnostic executable.
 - **input_files**: `list`. List of absolute paths to the metadata files describing the data to be used by the diagnostic.
-The format of these files is especified in section XXXX.
+The format of these files is especified in section `The data definition file`.
 - **tool**: `str`. Name of the tool used to prepare the data for the diagnostic.
 - **version**: `str` Version of the tool used to prepare the data for the diagnostic.
 - **run_dir**: `str`. Path to the directory to use as current path for the diagnostic execution. *Must* be writable by the diagnostic.
@@ -99,7 +99,8 @@ There is no limit to the number of input data files that can be provided on a si
 #### Related to the variable
 
 - **table**: `str`. Variable's original MIP table.
-- **frequency**: `str`. Variable's original frequency.
+- **original_frequency**: `str`. Variable's original frequency.
+- **frequency**: `str`. Variable's frequency when entering the diagnostic.
 - **modeling_realm**: `str`. Realms a variable belongs to.
 - **grid**: `str`. Variable's original grid.
 - **units**: `str`. Variable's units.
