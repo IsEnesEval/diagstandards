@@ -124,12 +124,8 @@ The labels listed below should be provided in order to complete the configuratio
 
 The following labels are accepted as optional settings, as certain tools may require their definition. Nevertheless, they can be ommitted if not relevant to the tool's configuration.
 
-- **process_ensembles**: `bool`. Tells the tool if the script can process ensembles, defaults to **True**. If **False, and when the script is to be applied to an ensemble, some tools may take in charge a loop over ensemble members. 
+- **process_ensembles**: `bool`. Tells the tool if the script can process ensembles, defaults to **True**. If **False**, and when the script is to be applied to an ensemble, some tools may take in charge a loop over ensemble members. 
 - **can_select** : `bool`. Tells the tool whether the script is able to select data in input data files, in term of variable selection and time period selection. Defaults to **False**.
-
-
-
-
 
 
 ## The command line interface
