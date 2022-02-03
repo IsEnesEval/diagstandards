@@ -10,7 +10,7 @@ It is assumed that diagnostic scripts are able to be wrapped
 as standalone codes that run as independent processes, an approach that
 has been successfully tested in tools such as ESMValTool and CLiMAF.
 It also assumes that diagnostic scripts are able to read CF compliant NetCDF
-data files and to produce only the same kind of output files and graphic files.
+data files.
 
 ## Glossary
 
