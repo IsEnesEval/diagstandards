@@ -105,20 +105,31 @@ The data definition file *must* consist of a YAML file containing a mapping of m
 
 ## The script formal description file
 
-It is *recommended* that each script comes with a description file in YAML syntax which includes:
+It is *recommended* that each script comes with a description file in YAML syntax which includes information regarding: documentation, configuration of script, and optional settings.
+
+The following labels should be provided in order to complete the documentation section:
 
 - **title**: `str`. Label for the title of the diagnostic.
 - **description** `str`. A short description of the diagnostic.
 - **references** `list(str)`. List of references to be cited if using the diagnostic.
 - **authors** `list(str)`. List of authors that developed the diagnostic.
+- **read_more**: `url`. An URL to the online documentation.
+
+The labels listed below should be provided in order to complete the configuration of the script:
+
 - **script_name**: `str`. Label for the name of the script, which uniquely identifies it, and is delivered by an authoritative entity (such as ESGF, ENES, or WCRP)
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
 - **mandatory_keys**: `list(str)`. List of reserved and custom keys for which the tool *must* provide values
-- **input_type**: `str`. Possible values are: `member`, `ensemble` or `any`. Allows the tool to check if values provided to the script have the right type.
-An `ensemble` can be defined as an ensemble with more than one member, while `any` allows for an ensemble of size 1. If the type differs among the variables, this entry can be a dictionary defined as {'key': 'variable name'}.
 - **outputs**:`dict`. Dictionary of patterns with the purpose of allowing the tool to discover every output file and to assign a label to it. The patterns and the labels used as dictionary keys  can make use of keywords `variable`, `dataset` and `reference_dataset`. The tool may substitute the keywords with all possible values to form file basenames and test whether a corresponding file exists in the script's output directories. Dictionary values can be defined as pairs, in which the second element of the pair is a pattern to indicate the 'short_name' of the output variable.
-- **can_select** : `bool`. Determines whether the script in input data files, in term of variable selection and time period selection. Defaults to **False**.
-- **read_more**: `url`. An URL to the online documentation.
+
+The following labels are accepted as optional settings, as certain tools may require their definition. Nevertheless, they can be ommitted if not relevant to the tool's configuration.
+
+- **process_ensembles**: `bool`. Tells the tool if the script can process ensembles, defaults to **True**. If **False**, and when the script is to be applied to an ensemble, some tools may take in charge a loop over ensemble members. 
+- **can_select** : `bool`. Tells the tool whether the script is able to select data in input data files, in term of variable selection and time period selection. Defaults to **False**
+
+
+
+
 
 
 ## The command line interface
