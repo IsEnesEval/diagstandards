@@ -4,6 +4,7 @@
 ## Technical standards for plugin diagnostic tools
 
 Report on the [technical standards](standard.md), in order to foster contribution and acceptance of new diagnostics developed by the community. These requirements will be selected to allow a wide range of diagnostics to interact with the tools in a modular and structured implementation. 
+We will also define the technical architecture required to plug other diagnostic packages to existing evaluation software frameworks (such as ESMValTool), in order to foster contribution and acceptance of new diagnostics developed by the community. These requirements will be selected to allow a wide range of diagnostics to interact with the tools in a modular and structured implementation. To facilitate coupling to the tools, a common set of protocols will be used, delivered and documented [D5.2], fostering the uptake of new diagnostics.
 
 ## Best practices for developing diagnostics
 
