@@ -106,8 +106,7 @@ The data definition file *must* consist of a YAML file containing a mapping of m
 
 ## The script formal description file
 
-It is *recommended* that each script comes with a description file in YAML syntax which includes information regarding the documentation,
-and configuration of the script.
+It is *recommended* that each script comes with a description file in YAML syntax.
 
 The following labels should be provided in order to complete the documentation section:
 
@@ -117,7 +116,7 @@ The following labels should be provided in order to complete the documentation s
 - **authors** `list(str)`. List of authors that developed the diagnostic.
 - **read_more**: `url`. An URL to the online documentation.
 
-The labels listed below should be provided in order to complete the configuration of the script:
+The labels listed below should be provided in order to complete the description of the script:
 
 - **script_name**: `str`. Name of the script, which uniquely identifies it.
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
