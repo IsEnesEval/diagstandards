@@ -129,6 +129,10 @@ provided in order to check the validity of the keys' values.
 ## The command line interface
 
 The diagnostic *must* be implemented as a command line tool that accepts the path to the
-YAML configuration file as the only parameter.
+YAML configuration file as a parameter. 
 
 It is *recommended* to include in the diagnostic executable the possibility to use a `--help` flag that prints the information defined in section [The script formal description file](#the-script-formal-description-file).
+
+Additionally, it is possible to include additional flags to complement the execution of the diagnostics.
+For example, a flag could be provided when re-running a diagnostic in order to indicate whether the output
+directory should be emptied from previous runs or not.
