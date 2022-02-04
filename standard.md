@@ -10,7 +10,8 @@ It is assumed that diagnostic scripts are able to be wrapped
 as standalone codes that run as independent processes, an approach that
 has been successfully tested in tools such as ESMValTool and CLiMAF.
 It also assumes that diagnostic scripts are able to read CF compliant NetCDF
-data files.
+data files and to produce output files with formats such as NetCDF, CVS, txt,
+or excel spreadsheets; as well as graphic files.
 
 ## Glossary
 
@@ -46,6 +47,7 @@ The format of these files is especified in section [The data definition file](th
 - **run_dir**: `str`. Path to the directory to use as current path for the diagnostic execution. *Must* be writable by the diagnostic.
 - **data_dir**: `str`. Path to the directory to store the  diagnostic's generated data on. *Must* be writable by the diagnostic.
 - **plot_dir**: `str`. Path to the directory to store the  diagnostic's generated figures on. *Must* be writable by the diagnostic.
+- **interface_version**: `str`. Version of the diagnostic interface.
 
 It is *suggested* to provide different directory names for `run_dir`, `data_dir` and `plot_dir`, as it makes the interaction with the results
 easier. However, using the same directory for all purposes is accepted.
@@ -57,7 +59,6 @@ The following options are not required, however if present they must follow the 
 - **log_level**: `str`, default value is `info`. Sets the granularity of the diagnostic logs and console output.
 If used, the logger must include `error` `warning`, `info` and `debug` levels .
 - **auxiliary_data_dir** : `str`. Path to the auxiliary directory to store further input data files needed by the diagnostic, such as shapefiles.
-- **max_proc_number** : `integer`, default value is **1**. Maximum number of processors used to run the diagnostic.
 
 
 ## The data definition file
@@ -89,23 +90,24 @@ The data definition file *must* consist of a YAML file containing a mapping of m
 - **original_frequency**: `str`. Variable's original frequency.
 - **frequency**: `str`. Variable's frequency when entering the diagnostic.
 - **modeling_realm**: `str`. Realms a variable belongs to.
-- **grid**: `str`. Variable's original grid.
+- **grid**: `str`. If present, label to the variable's grid given by the CMIP6 grid label.
 - **units**: `str`. Variable's units.
-- **short_name**: `str`. Variable's name used in the file as given by CF conventions.
+- **short_name**: `str`. Variable's name used in the file as given by the CMIP data request.
 - **standard_name**: `str`. Standard name of the variable as given by CF conventions.
-- **long_name**: `str`. Long name of the variable as given by CF conventions.
+- **long_name**: `str`. Long name of the variable as given by the CMIP data request.
 
 #### Others
 
 - **start**: `str`. Starting date of the data, given in ISO 8601 format for dates (YYYYMMDD).
 - **end**: `str`, Ending date of the data, in ISO 8601 format for dates (YYYYMMDD).
-- **start_year**: `int`. Starting year of the data.
+- **start_year**: `int`. Start year of the data.
 - **end_year**: `int`. End year of the data.
 - **reference_dataset**: `str`. Alias of the dataset to be used as the reference for comparisons.
 
 ## The script formal description file
 
-It is *recommended* that each script comes with a description file in YAML syntax which includes information regarding: documentation, configuration of script, and optional settings.
+It is *recommended* that each script comes with a description file in YAML syntax which includes information regarding the documentation,
+and configuration of the script.
 
 The following labels should be provided in order to complete the documentation section:
 
@@ -117,15 +119,11 @@ The following labels should be provided in order to complete the documentation s
 
 The labels listed below should be provided in order to complete the configuration of the script:
 
-- **script_name**: `str`. Label for the name of the script, which uniquely identifies it, and is delivered by an authoritative entity (such as ESGF, ENES, or WCRP)
+- **script_name**: `str`. Name of the script, which uniquely identifies it.
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
-- **mandatory_keys**: `list(str)`. List of reserved and custom keys for which the tool *must* provide values
-- **outputs**:`dict`. Dictionary of patterns with the purpose of allowing the tool to discover every output file and to assign a label to it. The patterns and the labels used as dictionary keys  can make use of keywords `variable`, `dataset` and `reference_dataset`. The tool may substitute the keywords with all possible values to form file basenames and test whether a corresponding file exists in the script's output directories. Dictionary values can be defined as pairs, in which the second element of the pair is a pattern to indicate the 'short_name' of the output variable.
-
-The following labels are accepted as optional settings, as certain tools may require their definition. Nevertheless, they can be ommitted if not relevant to the tool's configuration.
-
-- **process_ensembles**: `bool`. Tells the tool if the script can process ensembles, defaults to **True**. If **False**, and when the script is to be applied to an ensemble, some tools may take in charge a loop over ensemble members. 
-- **can_select** : `bool`. Tells the tool whether the script is able to select data in input data files, in term of variable selection and time period selection. Defaults to **False**.
+- **mandatory_keys**: `list(str)`. List of reserved and custom keys for which the tool *must* provide values. A schema should be
+provided in order to check the validity of the keys' values.
+- **optional_keys**: `list(str)`. List of optional custom keys for the tool. 
 
 
 ## The command line interface
