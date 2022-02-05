@@ -1,17 +1,16 @@
 # Definition of the standard
 
-This document intends to define a standard
-with the purpose of facilitating the sharing of source codes used to
-analyze climate data and produce evaluation results and figures. 
-Said codes will hereafter be referred as 'diagnostic scripts', or in short 'diagnostics'
-or 'scripts'. 
+This document intends to define a standard with the purpose of facilitating the sharing of source
+codes used to analyze climate data and produce evaluation  results and figures. 
+Said codes will hereafter be referred as 'diagnostic scripts', or in short 'diagnostics' or 
+'scripts'.
 
-It is assumed that diagnostic scripts are able to be wrapped
-as standalone codes that run as independent processes, an approach that
-has been successfully tested in tools such as ESMValTool and CLiMAF.
-It also assumes that diagnostic scripts are able to read CF compliant NetCDF
-data files and to produce output files with formats such as NetCDF, CVS, txt,
-or excel spreadsheets; as well as graphic files.
+It is assumed that diagnostic scripts are able to be wrapped as standalone codes that run as 
+independent processes, an approach that has been successfully tested in tools such as 
+ESMValTool and CLiMAF.
+It also assumes that diagnostic scripts are able to read CF compliant NetCDF data files and to
+ produce output files with formats such as NetCDF, CVS, txt, or excel spreadsheets; 
+ as well as graphic files.
 
 ## Glossary
 
@@ -21,10 +20,24 @@ This standard defines three tiers of enforceability for the guidelines to share 
 - **Recommend**: guidelines that all diagnostics are encouraged to meet, but are not mandatory.
 Nevertheless, if a list of compatible diagnostics is compiled, diagnostic scripts meeting
 recommended guidelines will be highlighted.
-- **Suggest**: guidelines that are not required, but are considered to improve the quality of the diagnostics.
+- **Suggest**: guidelines that are not required, but are considered to improve the quality of the 
+diagnostics.
 
-Diagnostic scripts are expected to be contributed along with a YAML file containing configuration options.
-This standard defines three different levels of enforceability for the contents of this YAML file:
+Diagnostic scripts are expected to be contributed along with a YAML file containing 
+[configuration options](the-diagnostic-configuration-file) and another file of the same format 
+containing information regarding [the input data](the-data-configuration-file) to be used in the diagnostic. 
+In addition to these two files, it is *recommended* that a third file of such format is provided as 
+a [the script's formal description](the-script-formal-description-file). 
+
+The requirement of using YAML as the standard format for these files is motivated by the fact that 
+it is common practice in software development to define configuration files in such format. 
+Furthermore, the syntax that it offers is human-readable and relatively straightforward. 
+Having easy-to-comprehend configuration and supporting files for the diagnostic script is essential
+in order to share them at a communitary level. 
+In terms of code quality, the availability of YAML linters to check the syntax is an added asset 
+with respect to other file formats.
+
+The standard also defines three different levels of enforceability for the contents of these YAML files:
 
 - **Required**: parameters that must always be present, have a defined meaning and that can only take allowed values.
 - **Reserved**: parameters that can be omitted, but if present, must have a defined meaning and allowed values.
@@ -33,7 +46,7 @@ They must not collide with neither `required` nor `reserved` parameters.
 
 ## The diagnostic configuration file
 
-The diagnostic's configuration file *must* consist of YAML file containing key-value mappings for all the parameters needed to run the diagnostic.
+The diagnostic's configuration file *must* consist of a YAML file containing key-value mappings for all the parameters needed to run the diagnostic. 
 
 ### Required options
 
@@ -116,7 +129,7 @@ The following labels should be provided in order to complete the documentation s
 - **authors** `list(str)`. List of authors that developed the diagnostic.
 - **read_more**: `url`. An URL to the online documentation.
 
-The labels listed below should be provided in order to complete the description of the script:
+The labels listed below should be provided in order to complete formal the description of the script:
 
 - **script_name**: `str`. Name of the script, which uniquely identifies it.
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
