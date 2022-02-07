@@ -129,38 +129,38 @@ related to the dataset and variable pairs.
 Therefore, if a diagnostic requires of  N variables [v1, v2, ... , vN] and M datasets [d1, d2, ..., dM]
 for each variables, the structure of the input files will be as follows:
 
-- data_definition_file_of_variable_v1.yml
-  - path_to_dataset_d1.nc
+- **data_definition_file_of_variable_v1.yml**
+  - *path_to_dataset_d1.nc*
     - Required options for the pair (v1, d1)
     - Reserved options for the pair (v1, d1)
     - Other options for the pair (v1, d1)
-  - path_to_dataset_d2.nc
+  - *path_to_dataset_d2.nc*
     - Required options for the pair (v1, d2)
     - Reserved options for the pair (v1, d2)
     - Other options for the pair (v1, d2)
   ... 
-  - path_to_dataset_dM.nc
+  - *path_to_dataset_dM.nc*
     - Required options for the pair (v1, dM)
     - Reserved options for the pair (v1, dM)
     - Other options for the pair (v1, dM)
-- data_definition_file_of_variable_v2.yml
-  - path_to_dataset_d1.nc
+- **data_definition_file_of_variable_v2.yml**
+  - *path_to_dataset_d1.nc*
     - Required options for the pair (v2, d1)
     - Reserved options for the pair (v2, d1)
     - Other options for the pair (v2, d1)
   ... 
-  - path_to_dataset_dM.nc
+  - *path_to_dataset_dM.nc*
     - Required options for the pair (v2, dM)
     - Reserved options for the pair (v2, dM)
     - Other options for the pair (v2, dM)
-...
-- data_definition_file_of_variable_vN.yml
-  - path_to_dataset_d1.nc
+**...**
+- **data_definition_file_of_variable_vN.yml**
+  - *path_to_dataset_d1.nc*
     - Required options for the pair (vN, d1)
     - Reserved options for the pair (vN, d1)
     - Other options for the pair (vN, d1)
   ... 
-  - path_to_dataset_dM.nc
+  - *path_to_dataset_dM.nc*
     - Required options for the pair (vN, dM)
     - Reserved options for the pair (vN, dM)
     - Other options for the pair (vN, dM)
