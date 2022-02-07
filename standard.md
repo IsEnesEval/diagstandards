@@ -127,7 +127,7 @@ related to the dataset and variable pairs.
 - **reference_dataset**: `str`. Alias of the dataset to be used as the reference for comparisons.
 
 Therefore, if a diagnostic requires of  N variables [v1, v2, ... , vN] and M datasets [d1, d2, ..., dM]
-for each variables, the structure of the input files will be as follows:
+for each variable, the structure of the data definition files will be as follows:
 
 - **data_definition_file_of_variable_v1.yml**
   - *path_to_dataset_d1.nc*
