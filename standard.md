@@ -179,7 +179,7 @@ The following labels should be provided in order to complete the documentation s
 
 The labels listed below should be provided in order to complete formal the description of the script:
 
-- **script_name**: `str`. Name of the script, which uniquely identifies it.
+- **script_name**: `str`. Name of the script, which has to be unique with respect to other scripts that can be run with the tool.
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
 - **mandatory_keys**: `list(str)`. List of reserved and custom keys for which the tool *must* provide values. A schema should be
 provided in order to check the validity of the keys' values.
