@@ -161,9 +161,9 @@ for each variables, the structure of the input files will be as follows:
     - Other options for the pair (vN, d1)
   ... 
   - path_to_dataset_dM.nc
-    - Required options for the pair (v2, dM)
-    - Reserved options for the pair (v2, dM)
-    - Other options for the pair (v2, dM)
+    - Required options for the pair (vN, dM)
+    - Reserved options for the pair (vN, dM)
+    - Other options for the pair (vN, dM)
 
 ## The script formal description file
 
