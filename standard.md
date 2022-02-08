@@ -2,7 +2,7 @@
 
 This document intends to define a standard with the purpose of facilitating the sharing of source
 codes used to analyze climate data and produce evaluation  results and figures.
-Said codes will hereafter be referred as 'diagnostic scripts', or in short 'diagnostics' or
+Said codes will hereafter be referred to as 'diagnostic scripts', or in short 'diagnostics' or
 'scripts'.
 
 It is assumed that diagnostic scripts are able to be wrapped as standalone codes that run as
@@ -60,11 +60,11 @@ The following options *must* be present in the configuration file:
 
 - **diagnostic_path** : `str`. Path to the diagnostic executable.
 - **input_files**: `list`. List of absolute paths to the metadata files describing the data to be used by the diagnostic.
-The format of these files is especified in section [The data definition file](the-data-definition-file).
+The format of these files is specified in section [The data definition file](the-data-definition-file).
 - **tool**: `str`. Name of the tool used to prepare the data for the diagnostic.
 - **version**: `str` Version of the tool used to prepare the data for the diagnostic.
 - **run_dir**: `str`. Path to the directory to use as current path for the diagnostic execution. *Must* be writable by the diagnostic.
-- **data_dir**: `str`. Path to the directory to store the  diagnostic's generated data on. *Must* be writable by the diagnostic.
+- **data_dir**: `str`. Path to the directory to store the  diagnostic's generated data. *Must* be writable by the diagnostic.
 - **plot_dir**: `str`. Path to the directory to store the  diagnostic's generated figures on. *Must* be writable by the diagnostic.
 - **interface_version**: `str`. Version of the diagnostic interface.
 
@@ -79,20 +79,18 @@ The following options are not required, however if present they must follow the 
 If used, the logger must include `error` `warning`, `info` and `debug` levels .
 - **auxiliary_data_dir** : `str`. Path to the auxiliary directory to store further input data files needed by the diagnostic, such as shapefiles.
 
-
 ## The data definition file
 
 A data definition file *must* be provided for each variable required by the diagnostic.
 Each of these files *must* consist of a YAML file containing a mapping of mappings.
-The top-level mapping will havethe path to the data file as keys. And as values, the mapping containing the metadata
+The top-level mapping will have the path to the data file as keys. And as values, the mapping containing the metadata
 related to the dataset and variable pairs.
-
 
 ### Required options
 
 - **alias**: `str`. Unique name for the dataset. Each (`alias`, `variable`) pair *must* be unique.
 - **filename**: `str`. Absolute path to the data file.
-- **variable**: `str`. Variable name to be used in the diagnostic. It is not necessary to follow CF conventions naming for variables.
+- **variable**: `str`. Variable name to be used in the diagnostic. It is not necessary to follow CF conventions to name the variables.
 
 ### Reserved options
 
@@ -112,7 +110,7 @@ related to the dataset and variable pairs.
 - **original_frequency**: `str`. Variable's original frequency.
 - **frequency**: `str`. Variable's frequency when entering the diagnostic.
 - **modeling_realm**: `str`. Realms a variable belongs to.
-- **grid**: `str`. If present, label to the variable's grid given by the CMIP6 grid label.
+- **grid**: `str`. If present, label of the variable's grid given by the CMIP6 grid label.
 - **units**: `str`. Variable's units.
 - **short_name**: `str`. Variable's name used in the file as given by the CMIP data request.
 - **standard_name**: `str`. Standard name of the variable as given by CF conventions.
@@ -126,7 +124,7 @@ related to the dataset and variable pairs.
 - **end_year**: `int`. End year of the data.
 - **reference_dataset**: `str`. Alias of the dataset to be used as the reference for comparisons.
 
-Therefore, if a diagnostic requires of  N variables [v1, v2, ... , vN] and M datasets [d1, d2, ..., dM]
+Therefore, if a diagnostic requires N variables [v1, v2, ... , vN] and M datasets [d1, d2, ..., dM]
 for each variable, the structure of the data definition files will be as follows:
 
 - **data_definition_file_of_variable_v1.yml**
@@ -177,14 +175,13 @@ The following labels should be provided in order to complete the documentation s
 - **authors** `list(str)`. List of authors that developed the diagnostic.
 - **read_more**: `url`. An URL to the online documentation.
 
-The labels listed below should be provided in order to complete formal the description of the script:
+The labels listed below should be provided in order to complete the formal description of the script:
 
 - **script_name**: `str`. Name of the script, which has to be unique with respect to other scripts that can be run with the tool.
 - **script_interface_version**: `str`. Label to specify the version of the script interface.
 - **mandatory_keys**: `list(str)`. List of reserved and custom keys for which the tool *must* provide values. A schema should be
 provided in order to check the validity of the keys' values.
 - **optional_keys**: `list(str)`. List of optional custom keys for the tool.
-
 
 ## The command line interface
 
